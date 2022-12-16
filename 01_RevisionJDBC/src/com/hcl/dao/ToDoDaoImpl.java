@@ -39,7 +39,7 @@ public class ToDoDaoImpl implements UserDAO,AdminDAO {
 
 	@Override
 	public void updateTodo(Todo t1)throws Exception {
-		pre=con.prepareStatement("update todos set title=?,desc=?,assignedto=? where id=?");
+		pre=con.prepareStatement("update todos set title=?, desc=?, assignedTo=? where id=?;");
 		pre.setString(1,t1.getTitle());
 		pre.setString(2, t1.getDesc());
 		pre.setString(3,t1.getAssignedTo());

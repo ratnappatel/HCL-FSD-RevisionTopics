@@ -44,7 +44,7 @@ public class TodoManager {
 			System.out.println("1. Add Task Details");
 			System.out.println("2. Edit Task Details");
 			System.out.println("3. Delete Task Details");
-			System.out.println("4. Get Add Task Details");
+			System.out.println("4. Get Task Details");
 			System.out.println("5. Get All Add Task Details");
 			op=sc.nextInt();
 			switch(op)
@@ -54,10 +54,36 @@ public class TodoManager {
 					aService.add(this.input());
 					break;
 				}
+				case 2:
+				{
+					aService.updateTask(this.input());
+					break;
+				}
+				case 3:
+				{
+					System.out.println("Enter Id to delete");
+					int id=sc.nextInt();
+					aService.deleteTask(id);
+					break;
+				}
+				case 4:
+				{
+					System.out.println("Enter Id to get details");
+					int id=sc.nextInt();
+					Todo t1=aService.getTodoById(id);
+					System.out.println(t1);
+					break;
+				}
 				case 5:
 				{
 					List<Todo> todos=aService.getAllTasks();
 					System.out.println(todos);
+					break;
+				}
+				default:
+				{
+					System.out.println("Invalid Choice TRY AGAIN");
+					break;
 				}
 			}
 			System.out.println("Would you like to continue(yes/no)");

@@ -50,4 +50,36 @@ public class AdminTodoService {
 		}
 		return todos;
 	}
+	
+	public void updateTask(Todo t1)
+	{
+		try 
+		{
+			dao.updateTodo(t1);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	public void deleteTask(int id)
+	{
+		try {
+			dao.deleteTodo(id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	public Todo getTodoById(int id)
+	{
+		Todo t1=null;
+		try 
+		{
+			t1=dao.getTodo(id);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return t1;
+	}
+	
 }
+
